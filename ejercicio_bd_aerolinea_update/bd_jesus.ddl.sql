@@ -29,7 +29,7 @@ create table if not exists vuelos(
     horaSalida int,
     horaLlegada int,
     ciudad varchar(50),
-    precio decimal(7,2)
+    precio decimal(10,2)
 );
 
 create table if not exists personal(
