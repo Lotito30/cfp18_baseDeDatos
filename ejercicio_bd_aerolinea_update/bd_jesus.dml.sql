@@ -1,17 +1,23 @@
 -- INGRESO REGISTROS DE "VUELOS"
 
-insert into vuelos (fecha, horaSalida, horaLlegada, ciudad, precio)
-values ('2023-05-21', 0900, 1200, 'Caracas', 135000.50);
-insert into vuelos (fecha, horaSalida, horaLlegada, ciudad, precio)
-values ('2023-05-22', 1400, 1720, 'Londres', 165000.75);
-insert into vuelos (fecha, horaSalida, horaLlegada, ciudad, precio)
-values ('2023-05-23', 1300, 1515, 'Caracas', 185000.00);
-insert into vuelos (fecha, horaSalida, horaLlegada, ciudad, precio)
-values ('2023-05-24', 1115, 1400, 'Nueva York', 250000.25);
-insert into vuelos (fecha, horaSalida, horaLlegada, ciudad, precio)
-values ('2023-05-25', 0700, 1000, 'Caracas', 120000.00);
-insert into vuelos (fecha, horaSalida, horaLlegada, ciudad, precio)
-values ('2023-05-26', 1600, 1900, 'Madrid', 200000.50);
+INSERT INTO vuelos 
+(fecha, horaSalida, horaLlegada, ciudad, precio) 
+VALUES ('2023-03-29', 1330, 1530, 'MDQ',23000.222);
+INSERT INTO vuelos 
+(fecha, horaSalida, horaLlegada, ciudad, precio) 
+VALUES ('2023-03-30', 1330, 1630, 'bariloche',25000.201);
+INSERT INTO vuelos 
+(fecha, horaSalida, horaLlegada, ciudad, precio) 
+VALUES ('2023-03-31', 1530, 1830, 'santiago',26000.80);
+INSERT INTO vuelos 
+(fecha, horaSalida, horaLlegada, ciudad, precio) 
+VALUES ('2023-05-20', 1430, 2045, 'caracas',36000.80);
+INSERT INTO vuelos 
+(fecha, horaSalida, horaLlegada, ciudad, precio) 
+VALUES ('2023-06-21', 1330, 2145, 'caracas',39000.80);
+INSERT INTO vuelos 
+(fecha, horaSalida, horaLlegada, ciudad, precio) 
+VALUES ('2023-05-20', 1330, 2130, 'lima',16000.90);
 
 -- INGRESO REGISTRO DE AVIONES
 
