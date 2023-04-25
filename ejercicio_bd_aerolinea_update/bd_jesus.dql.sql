@@ -69,7 +69,7 @@ left join pasajeros p on v.nro = p.nro_vuelo;
  
  -- muestra solo las coincidencias entre las dos tablas
  select p.pasaporte,v.fecha,v.nro, v.ciudad,v.horaSalida from vuelos v
- left join pasajeros p on v.nro = p.nro_vuelo;
+ right join pasajeros p on v.nro = p.nro_vuelo;
  
  -- precio total de una ciudad
  select sum(precio), ciudad from vuelos 
