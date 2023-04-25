@@ -7,11 +7,6 @@ select * from piloto_personal;
 select * from pilotos;
 select * from personas;
 
-
--- vuelo minimo
-select ciudad,min(precio) from vuelos; 
--- vuelo maximo
-select ciudad, max(precio) from vuelos; 
 -- consulta condicional
 select ciudad, precio from vuelos where precio >= 100000; 
 select ciudad, precio from vuelos where precio <= 200000; 
@@ -69,7 +64,7 @@ left join pasajeros p on v.nro = p.nro_vuelo;
  
  -- muestra solo las coincidencias entre las dos tablas
  select p.pasaporte,v.fecha,v.nro, v.ciudad,v.horaSalida from vuelos v
- left join pasajeros p on v.nro = p.nro_vuelo;
+ right join pasajeros p on v.nro = p.nro_vuelo;
  
  -- precio total de una ciudad
  select sum(precio), ciudad from vuelos 
