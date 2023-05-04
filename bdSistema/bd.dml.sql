@@ -8,11 +8,14 @@ INSERT INTO programas (freq_ejec) VALUES ('baja'), ('media'), ('alta');
 INSERT INTO archivos (modos) VALUES ('Input'), ('Output'), ('Input-Output');
 
 -- Insertar registros en la tabla sistemas_programas
-INSERT INTO sistemas_programas (nivel_sistema, freq_ejec) VALUES 
+INSERT INTO sistemas_programas (nivel_sistema, freq_ejec) VALUES
 ('bajo', 'baja'), 
 ('medio', 'media'), 
 ('alto', 'alta'),
-('bajo', 'media');
+('bajo', 'media'),
+('bajo', 'media'),
+('medio', 'alta'),
+('medio', 'baja');
 
 -- Insertar registros en la tabla programas_archivos
 INSERT INTO programas_archivos (freq_ejec, modos) VALUES 
