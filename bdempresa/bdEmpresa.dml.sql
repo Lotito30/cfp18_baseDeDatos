@@ -1,57 +1,32 @@
-drop database if exists empresa;
-create database empresa;
+-- Insertar valores en departamentos
+insert into departamentos (descripcion) value ("finanzas");
+insert into departamentos (descripcion) value ("marketing");
+insert into departamentos (descripcion) value ("RRHH");
+insert into departamentos (descripcion) value ("produccion");
+insert into departamentos (descripcion) value ("ventas");
 
-use empresa;
+-- Insertar valores en consultoras
+insert into consultoras(nroCuit, razonSocial) values  (12345,"Kl23");
+insert into consultoras(nroCuit, razonSocial) values (54321,"lk32");
+insert into consultoras(nroCuit, razonSocial) values (13579,"zk46");
 
-create table empleados(
-	nroLegajo int primary key,
-    nombre varchar(50),
-    apellido varchar(50),
-    nroDepartamento int
-);
-create table contratados(
-	nroLegajo int primary key,
-    nroCuit int,
-    precioPorHora int,
-    horaExtra int
-);
+-- Insertar valores en empleados
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
+(2356,"Jesus","Dominguez",1);
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
+(2146,"Miguel","Lotito",2);
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
+(2256,"Angel","Ruiz",3);
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
+(2636,"Miguel","Dominguez",4);
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
+(1936,"Angel","Dominguez",1);
 
-create table efectivos(
-	nroLegajo int primary key,
-    salario int
-);
+-- Insertar valores en contratados
+insert into contratados(nroLegajo,nroCuit,precioPorHora,horaExtra) values (2356,12345,1000,2000);
+insert into contratados(nroLegajo,nroCuit,precioPorHora,horaExtra) values (2146,13579,1200,2146);
+insert into contratados(nroLegajo,nroCuit,precioPorHora,horaExtra) values (1936,54321,1400,2300);
 
-create table departamentos(
-	codigo int primary key auto_increment,
-    descripcion varchar (255)
-);
-create table consultoras(
-	nroCuit int primary key,
-    razonSocial varchar(255)
-);
-
-alter table contratados
-add foreign key(nroLegajo)
-references empleados(nroLegajo);
-
-alter table efectivos
-add foreign key(nroLegajo)
-references empleados(nroLegajo);
-
-alter table empleados
-add foreign key(nroDepartamento)
-references departamentos(codigo);
-
-alter table contratados
-add foreign key(nroCuit)
-references consultoras(nroCuit);
-
-
-
-
-
-
-
-
-
-
+-- Insertar valores en efectivos
+insert into efectivos(nroLegajo,salario) values (2256,150000);
+insert into efectivos(nroLegajo,salario) values (2636,120000);
