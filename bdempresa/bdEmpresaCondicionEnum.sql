@@ -7,7 +7,8 @@ use empresa;
     descripcion varchar (255)
 );
 create table consultoras(
-	nroCuit int primary key,
+	nroLegajo int primary key,
+	nroCuit int,
     razonSocial varchar(255)
 );
 create table empleados(
@@ -32,37 +33,6 @@ modify column nroLegajo int primary key,
 add column precioPorHora double,
 add column horaExtra double,
 add column  nroCuit int;
-
-
-/* create table contratados(
-	nroLegajo int primary key,
-    nroCuit int,
-    precioPorHora double,
-    horaExtra double
-);
-
-create table efectivos(
-	nroLegajo int primary key,
-    salario double
-);
-
-alter table contratados
-add foreign key(nroLegajo)
-references empleados(nroLegajo);
-
-alter table efectivos
-add foreign key(nroLegajo)
-references empleados(nroLegajo);
-
-alter table empleados
-add foreign key(nroDepartamento)
-references departamentos(codigo);
-
-alter table contratados
-add foreign key(nroCuit)
-references consultoras(nroCuit);
-
-*/
 
 
 

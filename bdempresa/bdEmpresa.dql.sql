@@ -1,3 +1,5 @@
+
+ 
 select * from departamentos;
 select * from consultoras;
 select * from empleados;
