@@ -5,28 +5,59 @@ insert into departamentos (descripcion) value ("RRHH");
 insert into departamentos (descripcion) value ("produccion");
 insert into departamentos (descripcion) value ("ventas");
 
--- Insertar valores en consultoras
-insert into consultoras(nroCuit, razonSocial) values  (12345,"Kl23");
-insert into consultoras(nroCuit, razonSocial) values (54321,"lk32");
-insert into consultoras(nroCuit, razonSocial) values (13579,"zk46");
-
 -- Insertar valores en empleados
-insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
-(2356,"Jesus","Dominguez",1);
-insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
-(2146,"Miguel","Lotito",2);
-insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
-(2256,"Angel","Ruiz",3);
-insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
-(2636,"Miguel","Dominguez",4);
-insert into empleados (nroLegajo,nombre,apellido,nroDepartamento) values 
-(1936,"Angel","Dominguez",1);
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo, tipo) values 
+(2356,"Jesus","Dominguez",1,"efectivo");
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo,tipo) values 
+(2146,"Miguel","Lotito",2,"efectivo");
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo,tipo) values 
+(2256,"Angel","Ruiz",3,"efectivo");
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo,tipo) values 
+(2636,"Miguel","Dominguez",4,"contratado");
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo,tipo) values 
+(1936,"Angel","Dominguez",1,"contratado");
 
--- Insertar valores en contratados
-insert into contratados(nroLegajo,nroCuit,precioPorHora,horaExtra) values (2356,12345,1000,2000);
-insert into contratados(nroLegajo,nroCuit,precioPorHora,horaExtra) values (2146,13579,1200,2146);
-insert into contratados(nroLegajo,nroCuit,precioPorHora,horaExtra) values (1936,54321,1400,2300);
+-- Insertar valores en consultoras
+insert into consultoras(nroLegajo,nroCuit, razonSocial) values  (2636,12345,"Kl23");
+insert into consultoras(nroLegajo,nroCuit, razonSocial) values (1936,54321,"lk32");
 
--- Insertar valores en efectivos
-insert into efectivos(nroLegajo,salario) values (2256,150000);
-insert into efectivos(nroLegajo,salario) values (2636,120000);
+
+insert into efectivos (nroLegajo,salario) 
+select nroLegajo, 
+case
+	when departamentos.descripcion = "finanzas" then 5000
+    when departamentos.descripcion = "marketing" then 4000
+    when departamentos.descripcion = "RRHH" then 3000
+    when departamentos.descripcion = "produccion" then 2000
+    else 1000
+end
+from empleados
+join departamentos on departamentos.codigo = empleados.nroDepartamento_codigo
+where tipo = "efectivo";
+
+insert into contratados (nroLegajo,precioPorHora,precioPorHoraExtra,horasComun,horasExtras,nroCuit) 
+select empleados.nroLegajo, 
+	case
+		when departamentos.descripcion = "finanzas" then 1300
+		when departamentos.descripcion = "marketing" then 1200
+		when departamentos.descripcion = "RRHH" then 1100
+		when departamentos.descripcion = "produccion" then 1000
+		else 900
+	end,
+    case
+		when departamentos.descripcion = "finanzas" then 1500
+		when departamentos.descripcion = "marketing" then 1400
+		when departamentos.descripcion = "RRHH" then 1300
+		when departamentos.descripcion = "produccion" then 1200
+		else 1100
+	end,
+    200,
+    12,
+    consultoras.nroCuit
+from empleados
+join departamentos on departamentos.codigo = empleados.nroDepartamento_codigo
+join consultoras on consultoras.nroLegajo = empleados.nroLegajo
+where tipo = "contratado";
+
+select * from efectivos;
+select * from contratados;
