@@ -16,10 +16,13 @@ insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo,tipo) va
 (2636,"Miguel","Dominguez",4,"contratado");
 insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo,tipo) values 
 (1936,"Angel","Dominguez",1,"contratado");
+insert into empleados (nroLegajo,nombre,apellido,nroDepartamento_codigo,tipo) values 
+(2936,"Miguel Angel","Ruiz",3,"contratado");
 
 -- Insertar valores en consultoras
-insert into consultoras(nroLegajo,nroCuit, razonSocial) values  (2636,12345,"Kl23");
+insert into consultoras(nroLegajo,nroCuit, razonSocial) values (2636,12345,"Kl23");
 insert into consultoras(nroLegajo,nroCuit, razonSocial) values (1936,54321,"lk32");
+insert into consultoras(nroLegajo,nroCuit, razonSocial) values (2936,45212,"lk32");
 
 
 insert into efectivos (nroLegajo,salario) 
@@ -58,6 +61,3 @@ from empleados
 join departamentos on departamentos.codigo = empleados.nroDepartamento_codigo
 join consultoras on consultoras.nroLegajo = empleados.nroLegajo
 where tipo = "contratado";
-
-select * from efectivos;
-select * from contratados;
