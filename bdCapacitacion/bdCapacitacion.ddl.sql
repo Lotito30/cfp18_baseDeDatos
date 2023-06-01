@@ -28,7 +28,7 @@ CREATE TABLE alumnos (
   telefono VARCHAR(20)
 );
 
--- Crear la tabla de inscripciones
+-- Crear la tabla de alumnos_cursos
 CREATE TABLE alumnos_cursos (
   alumno_email VARCHAR(255),
   curso_codigo INT,
