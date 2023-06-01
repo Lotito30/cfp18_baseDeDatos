@@ -20,7 +20,7 @@ INSERT INTO alumnos (email, nombre, telefono) VALUES
   ('laura@example.com', 'Laura Martinez', '9876543210'),
   ('carlos@example.com', 'Carlos Ramirez', '5555555555');
 
--- Realizar inscripciones de alumnos en cursos
+-- Insertar alumnos_cursos
 INSERT INTO alumnos_cursos (alumno_email, curso_codigo) VALUES
   ('mariana@example.com', 1),
   ('mariana@example.com', 2),
