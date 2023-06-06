@@ -30,9 +30,9 @@ CREATE TABLE alumnos (
 
 -- Crear la tabla de alumnos_cursos
 CREATE TABLE alumnos_cursos (
+  id int auto_increment primary key,
   alumno_email VARCHAR(255),
   curso_codigo INT,
-  PRIMARY KEY (alumno_email, curso_codigo),
   FOREIGN KEY (alumno_email) REFERENCES alumnos(email),
   FOREIGN KEY (curso_codigo) REFERENCES cursos(codigo)
 );

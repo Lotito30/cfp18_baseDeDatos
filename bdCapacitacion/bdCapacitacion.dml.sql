@@ -2,16 +2,16 @@
 INSERT INTO instructores (documento, nombre, telefono) VALUES
   (12345678, 'Pablo Perez', '1123456789'),
   (87654321, 'Daniel Lopez', '1198765432'),
-  (45678912, 'Antonio Gomwez', '1154698732'),
+  (45678912, 'Antonio Gomez', '1154698732'),
   (85296321, 'Maria Valenzuela', '1158742369');
 
 -- Insertar cursos
 INSERT INTO cursos (codigo, nombre, cuota, duracion, instructor_documento) VALUES
-  (1, 'Introducción a UNIX', 100.00, 4, 12345678),
-  (2, 'Programación Java', 150.00, 4, 87654321),
-  (3, 'Bases de Datos', 200.00, 8, 45678912),
-  (4, 'Desarrollo Web', 180.00, 12, 85296321),
-  (5, 'POO', 280.00, 12, 12345678);
+  (1258, 'Introducción a UNIX', 1000.00, 4, 12345678),
+  (2854, 'Programación Java', 1500.00, 4, 87654321),
+  (3465, 'Bases de Datos', 1600.00, 8, 45678912),
+  (7542, 'Desarrollo Web', 1500.00, 16, 85296321),
+  (9854, 'POO', 1800.00, 12, 12345678);
 
 -- Insertar alumnos
 INSERT INTO alumnos (email, nombre, telefono) VALUES
@@ -22,10 +22,10 @@ INSERT INTO alumnos (email, nombre, telefono) VALUES
 
 -- Insertar alumnos_cursos
 INSERT INTO alumnos_cursos (alumno_email, curso_codigo) VALUES
-  ('mariana@example.com', 1),
-  ('mariana@example.com', 2),
-  ('juan@example.com', 3),
-  ('laura@example.com', 1),
-  ('carlos@example.com', 4),
-  ('carlos@example.com', 5),
-  ('juan@example.com', 5);
+  ('mariana@example.com', 1258),
+  ('mariana@example.com', 2854),
+  ('juan@example.com', 3465),
+  ('laura@example.com', 1258),
+  ('carlos@example.com', 7542),
+  ('carlos@example.com', 9854),
+  ('juan@example.com', 9854);
