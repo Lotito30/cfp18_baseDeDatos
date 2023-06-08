@@ -28,4 +28,5 @@ INSERT INTO alumnos_cursos (alumno_email, curso_codigo) VALUES
   ('laura@example.com', 1258),
   ('carlos@example.com', 7542),
   ('carlos@example.com', 9854),
-  ('juan@example.com', 9854);
+  ('juan@example.com', 9854),
+  ('carlos@example.com', 9854);

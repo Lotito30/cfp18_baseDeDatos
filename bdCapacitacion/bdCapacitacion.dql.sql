@@ -33,3 +33,17 @@ join cursos on cursos.codigo = alumnos_cursos.curso_codigo
 join alumnos on alumnos.email = alumnos_cursos.alumno_email
 join instructores on instructores.documento = cursos.instructor_documento;
 
+-- nombre del curso y quien lo dicta con mas alumnos
+
+set @cursoMasAlumnos := (SELECT MAX(contador) FROM (
+    SELECT COUNT(*) AS contador 
+    FROM cursos
+    JOIN alumnos_cursos ON alumnos_cursos.curso_codigo = cursos.codigo
+    GROUP BY cursos.nombre
+) AS subconsulta);
+
+select cursos.nombre, instructores.nombre, @cursoMasAlumnos as 'Cantidad de alumnos' from cursos
+join alumnos_cursos on alumnos_cursos.curso_codigo = cursos.codigo
+join instructores on cursos.instructor_documento = instructores.documento
+group by cursos.nombre having count(*) = @cursoMasAlumnos; 
+
